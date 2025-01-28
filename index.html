@@ -29,8 +29,11 @@
         <div>Health: <span id="health">100</span></div>
         <div>Ammo: <span id="ammo">30</span></div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script>
+    <!-- Use type="module" for ES module imports -->
+    <script type="module">
+        import * as THREE from 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.module.min.js';
+        import { PointerLockControls } from 'https://cdn.jsdelivr.net/npm/three@0.128.0/examples/jsm/controls/PointerLockControls.js';
+
         let camera, scene, renderer, controls;
         let moveForward = false, moveBackward = false, moveLeft = false, moveRight = false;
         let canJump = false, velocityY = 0;
@@ -90,7 +93,7 @@
             }
 
             // Controls
-            controls = new THREE.PointerLockControls(camera, document.body);
+            controls = new PointerLockControls(camera, document.body);
             document.addEventListener('click', () => {
                 if (!document.pointerLockElement) {
                     document.body.requestPointerLock();
