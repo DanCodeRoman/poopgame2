@@ -46,6 +46,9 @@
             scene.background = new THREE.Color(0x000000);
             camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
             
+            // Set initial camera position above ground
+            camera.position.set(0, 10, 0);
+
             // Renderer
             renderer = new THREE.WebGLRenderer();
             renderer.setSize(window.innerWidth, window.innerHeight);
@@ -53,7 +56,7 @@
 
             // Lighting
             const light = new THREE.PointLight(0xffffff, 1, 100);
-            light.position.set(0, 10, 0);
+            light.position.set(0, 20, 0);
             scene.add(light);
 
             // Ground
